@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
 
 export default function Textform(props) {
-  const convertText = ()=>{
-    setText("hgigiug")
+  const upperText = ()=>{
+    let newText = Text.toUpperCase()
+    setText(newText)
   }
-  const change = ()=>{
+  const lowerText = ()=>{
+    let newText = Text.toLowerCase()
+    setText(newText)
+  }
+  const reverseText = ()=>{
+    let newText = Text.slice()
+    setText(newText)
+  }
+  const change = (event)=>{
     console.log("theres a change")
+    setText(event.target.value)
   }
   const [Text, setText] = useState("Enter Text here");
   return (
@@ -20,7 +30,9 @@ export default function Textform(props) {
           onChange={change}
         ></textarea>
       </div>
-      <button className="btn btn-outline-success" onClick={convertText}>Convert</button>
+      <button className="btn btn-outline-success" onClick={upperText}>Convert to Uppercase</button>
+      <button className="btn btn-outline-success mx-2" onClick={lowerText}>Convert to Lowercase</button>
+      <button className="btn btn-outline-success mx-2" onClick={reverseText}>Convert to Lowercase</button>
     </div>
   );
 }
