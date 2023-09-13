@@ -10,9 +10,26 @@ export default function Textform(props) {
     setText(newText)
   }
   const reverseText = ()=>{
-    let newText = Text.slice()
+    let splitString = Text.split("");
+    let reverseArray = splitString.reverse();
+    let newText = reverseArray.join("");
     setText(newText)
   }
+  const alternateText = ()=>{
+   let chars = Text.toLowerCase().split("");
+      for (var i = 0; i < chars.length; i += 2) {
+    chars[i] = chars[i].toUpperCase();
+    }
+    let newText = chars.join("")
+
+    setText(newText)
+  }
+
+  const clearText = () => {
+    let newText = "";
+    setText(newText)
+  }
+
   const change = (event)=>{
     console.log("theres a change")
     setText(event.target.value)
@@ -32,7 +49,9 @@ export default function Textform(props) {
       </div>
       <button className="btn btn-outline-success" onClick={upperText}>Convert to Uppercase</button>
       <button className="btn btn-outline-success mx-2" onClick={lowerText}>Convert to Lowercase</button>
-      <button className="btn btn-outline-success mx-2" onClick={reverseText}>Convert to Lowercase</button>
+      <button className="btn btn-outline-success mx-2" onClick={reverseText}>Reverse</button>
+      <button className="btn btn-outline-success mx-2" onClick={alternateText}>Alternate</button>
+      <button className="btn btn-outline-success mx-2" onClick={clearText}>Clear</button>
     </div>
   );
 }
